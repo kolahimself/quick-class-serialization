@@ -30,14 +30,14 @@ with st.form("student_form"):
     name = st.text_input("Enter your name")
     matric_number = st.text_input("Enter your matric number (6 digits)")
     submitted = st.form_submit_button("Submit")
-    st.write(serial_data["MATRIC NUMBER"].values)
+    st.write(serial_data["SERIAL NUMBER"].values)
 
 if submitted:
     if len(matric_number) != 6 or not matric_number.isdigit():
         st.error("Please enter a valid 6-digit matric number.")
     else:
         # Check if matric number exists in the CSV
-        if matric_number in serial_data["SERIAL NUMBER"].values:
+        if matric_number in serial_data["MATRIC NUMBER"].values:
             serial_number = serial_data[serial_data["MATRIC NUMBER"] == matric_number]["SERIAL NUMBER"].values[0]
             st.markdown(f"<h1 style='text-align: center;'>Your Serial Number is:</h1>", unsafe_allow_html=True)
             st.markdown(f"<h1 style='text-align: center; font-size: 48px;'>{serial_number}</h1>", unsafe_allow_html=True)
