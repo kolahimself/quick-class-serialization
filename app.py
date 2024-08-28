@@ -14,14 +14,14 @@ def save_to_csv(data, file_path):
     data.to_csv(file_path, mode=mode, header=not os.path.exists(file_path), index=False)
 
 # Set page config
-st.set_page_config(page_title="Serial Number Lookup", layout="centered")
+st.set_page_config(page_title="MGS 500 Serial Number Lookup", layout="centered")
 
 # Main app
-st.title("Serial Number Lookup")
+st.title("MGS 500 Serial Number Lookup")
 
 # Load the CSV files
-serial_data = load_csv("serial_numbers.csv")
-registered_data = load_csv("registered_students.csv")
+serial_data = load_csv("data/serial_numbers.csv")
+registered_data = load_csv("data/registered_students.csv")
 
 # Create form
 with st.form("student_form"):
@@ -46,8 +46,3 @@ if submitted:
             st.success("Your information has been recorded.")
         else:
             st.error("You haven't paid necessary dues to register for the course. Please contact the course rep.")
-
-# Display registered students
-if not registered_data.empty:
-    st.subheader("Registered Students")
-    st.dataframe(registered_data)
