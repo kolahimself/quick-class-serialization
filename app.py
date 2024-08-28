@@ -35,7 +35,6 @@ with st.form("student_form"):
     name = st.text_input("Enter your name")
     matric_number = st.text_input("Enter your matric number (6 digits)")
     submitted = st.form_submit_button("Submit")
-    st.write(serial_data)
 
 if submitted:
     if len(matric_number) != 6 or not matric_number.isdigit():
