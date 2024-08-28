@@ -45,4 +45,4 @@ if submitted:
             
             st.success("Your information has been recorded.")
         else:
-            st.error("You haven't paid necessary dues to register for the course. Please contact the course rep.")
+            st.error("Details not yet registered. Please contact the course rep.")
