@@ -10,8 +10,10 @@ def load_csv(file_path):
 
 # Function to save data to CSV
 def save_to_csv(data, file_path):
-    mode = 'a' if os.path.exists(file_path) else 'w'
-    data.to_csv(file_path, mode=mode, header=not os.path.exists(file_path), index=False)
+    existing data = load_csv(file_path)
+    updated_data = pd.concat([existing_data, data], ignore_index=True)
+    updated_data.drop_duplicates(subset=['Matric Number'], keep='last', inplace=True)
+    updated_data.to_csv(file_path, index=False)
 
 # Set page config
 st.set_page_config(page_title="MGS 500 Serial Number Lookup", layout="centered")
