@@ -5,7 +5,12 @@ import os
 # Function to load the CSV file
 def load_csv(file_path):
     if os.path.exists(file_path):
-        return pd.read_csv(file_path)
+        df = pd.read_csv(file_path)
+        if "MATRIC NUMBER" in df.columns:
+            df["MATRIC NUMBER"] = df["MATRIC NUMBER"].astype(str).str.replace(',', '')
+        elif "Matric Number" in df.columns:
+            df["Matric Number"] = df["Matric Number"].astype(str).str.replace(',', '')
+        return df
     return pd.DataFrame()
 
 # Function to save data to CSV
