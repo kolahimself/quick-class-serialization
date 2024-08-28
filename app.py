@@ -10,7 +10,7 @@ def load_csv(file_path):
 
 # Function to save data to CSV
 def save_to_csv(data, file_path):
-    existing data = load_csv(file_path)
+    existing_data = load_csv(file_path)
     updated_data = pd.concat([existing_data, data], ignore_index=True)
     updated_data.drop_duplicates(subset=['Matric Number'], keep='last', inplace=True)
     updated_data.to_csv(file_path, index=False)
